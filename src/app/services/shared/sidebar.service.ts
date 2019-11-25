@@ -11,7 +11,8 @@ menu:any = [
     submenu:[
       {titulo:'Dashboar', url: '/dashboard'},
       {titulo:'Progress', url: '/progress'},
-      {titulo:'Graficas', url: '/graficas1'}
+      {titulo:'Graficas', url: '/graficas1'},
+      {titulo:'Promesas', url: '/graficas1'}
     ]
   }
 ];
