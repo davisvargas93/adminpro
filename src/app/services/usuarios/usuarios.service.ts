@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators'
 import  swal from 'sweetalert';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
+import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
 
 @Injectable({
@@ -18,8 +19,9 @@ export class UsuariosService {
   constructor(
     public _subirImagenServices:SubirArchivoService,
     public router:Router,
-    public http: HttpClient ) { 
-    console.log('servicio de usuario listo')
+    public http: HttpClient,
+    public _modalUploadService:ModalUploadService ) { 
+    // console.log('servicio de usuario listo')
     this.cargarStorage();
   }
 
@@ -128,5 +130,29 @@ export class UsuariosService {
       })
 
   }
+
+  cargarUsuarios(desde:number){
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+        return this.http.get(url);
+  }
+
+  buscarUsuarios(termino:string){
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+    return this.http.get(url)
+          .pipe(map((resp:any)=>resp.usuarios ));
+  }
+
+
+  borrarUsuario(id:string){
+    let url = URL_SERVICIOS + '/usuario/' + id+'?token='+this.token;
+
+    return this.http.delete(url)
+          .pipe(map(resp=>{
+            swal('Usuario borrado','El usuario a sido eliminado correctamente','success');
+            return true;
+
+    }));
+  }
+
 
 }
