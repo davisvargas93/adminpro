@@ -24,8 +24,9 @@ export class ModalUploadComponent implements OnInit {
     this.imagenSubir=null;
     this.imagenTemp=null;
     this._modalUploadService.ocultarModal();
+    
   }
-
+  
   seleccionImagen(archivo: File){
     
     if( !archivo){
@@ -53,7 +54,7 @@ export class ModalUploadComponent implements OnInit {
 
     this._subirArchivoService.subirArchivo(this.imagenSubir,this._modalUploadService.tipo,this._modalUploadService.id)
         .then(resp =>{
-          console.log(resp);
+          // console.log(resp);
           
           this._modalUploadService.notificacion.emit(resp);
           this.cerrarModal();

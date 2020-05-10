@@ -19,7 +19,7 @@ export class UsuariosService {
   constructor(
     public _subirImagenServices:SubirArchivoService,
     public router:Router,
-    public http: HttpClient,
+    public http: HttpClient, 
     public _modalUploadService:ModalUploadService ) { 
     // console.log('servicio de usuario listo')
     this.cargarStorage();
