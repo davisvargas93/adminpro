@@ -7,8 +7,9 @@ import  swal from 'sweetalert';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
-import { of } from 'rxjs/internal/observable/of';
-import { Observable } from 'rxjs';
+
+
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Injectable({
